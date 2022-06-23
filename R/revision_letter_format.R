@@ -1,0 +1,142 @@
+#' Revision Letter
+#'
+#' Template for creating a journal revision letters.
+#'
+#' @param keep_tex Logical. Whether to keep the intermediate tex file used in
+#'   the conversion to PDF.
+#' @inheritDotParams bookdown::pdf_document2
+#'
+#' @seealso [bookdown::html_document2()]
+#' @inherit apa6_pdf return
+#' @export
+
+
+revision_letter_pdf <- function(keep_tex = TRUE, ...) {
+  validate(keep_tex, check_class = "logical", check_length = 1)
+
+  ellipsis <- list(...)
+  ellipsis$keep_tex <- keep_tex
+
+  if(!is.null(ellipsis$template)) ellipsis$template <- NULL
+
+  # Get template
+  template <- system.file(
+    "rmarkdown", "templates", "revision_letter", "resources"
+    , "revision_letter.tex"
+    , package = "papaja"
+  )
+  if(template == "") stop("No LaTeX template file found.") else ellipsis$template <- template
+
+  # Create format
+  revision_letter_format <- do.call(bookdown::pdf_document2, ellipsis)
+
+  # Set chunk defaults
+  revision_letter_format$knitr$opts_chunk$echo <- FALSE
+  revision_letter_format$knitr$opts_chunk$message <- FALSE
+  revision_letter_format$knitr$opts_chunk$fig.cap <- " " # Ensures that figure environments are added
+  revision_letter_format$knitr$opts_knit$rmarkdown.pandoc.to <- "latex"
+  revision_letter_format$knitr$knit_hooks$inline <- inline_numbers
+
+  ## Overwrite preprocessor to set correct margin and CSL defaults
+  saved_files_dir <- NULL
+
+  # Preprocessor functions are adaptations from the RMarkdown package
+  # (https://github.com/rstudio/rmarkdown/blob/master/R/pdf_document.R)
+  # to ensure right geometry defaults in the absence of user specified values
+  pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir, output_dir) {
+    # save files dir (for generating intermediates)
+    saved_files_dir <<- files_dir
+
+    args <- revision_letter_preprocessor(metadata, input_file, runtime, knit_meta, files_dir, output_dir)
+
+    # Set citeproc = FALSE by default to invoke ampersand filter
+    if(
+      (is.null(metadata$replace_ampersands) || metadata$replace_ampersands) &&
+      (is.null(metadata$citeproc) || metadata$citeproc)
+    ) {
+      metadata$citeproc <- FALSE
+      assign("front_matter", metadata, pos = parent.frame())
+    }
+
+    args
+  }
+
+  revision_letter_format$pre_processor <- pre_processor
+
+  revision_letter_format
+}
+
+
+revision_letter_preprocessor <- function(metadata, input_file, runtime, knit_meta, files_dir, output_dir) {
+  # Add pandoc arguments
+  args <- NULL
+
+  if((!is.list(metadata$output) ||  !is.list(rmarkdown::metadata$output[[1]]) || is.null(metadata$output[[1]]$citation_package)) &
+     (is.null(metadata$citeproc) || metadata$citeproc)) {
+
+    ## Set CSL
+    args <- set_default_csl(input_file
+                            , version = 6
+                            , metadata = metadata)
+    csl_specified <- is.null(args)
+
+    ## Set ampersand filter
+    if((is.null(metadata$replace_ampersands) || metadata$replace_ampersands)) {
+      if(csl_specified) {
+        args <- c(args, "--csl", metadata$csl)
+      }
+
+      args <- rmdfiltr::add_citeproc_filter(args)
+      args <- rmdfiltr::add_replace_ampersands_filter(args)
+    }
+  }
+
+  ## Set additional lua filters
+  args <- rmdfiltr::add_wordcount_filter(args, error = FALSE)
+
+  args
+}
+
+
+#' Quote from TeX document
+#'
+#' Includes a labelled quote from a LaTeX document 'asis'.
+#'
+#' @param x Character. One or more quote labels.
+#' @param file Character. Path to LaTeX file from which to quote.
+#'
+#' @details Searches the LaTeX document specified in `file` for labelled
+#'   quotes, i.e. paragraphs that are enclosed in `% <@~{#quote-label}` and
+#'   `% ~@>}` tags in LaTeX comments on separate lines. The labelled quote is
+#'   then inserted and rendered `asis`.
+#' @return A character vector of LaTeX document text of class \code{knit_asis},
+#'   see [knitr::asis_output()].
+#' @export
+
+quote_from_tex <- function(x, file) {
+  label_warning <- paste0("Labelled quote(s) ", paste0("'", x, "'", collapse = ", "), " not found in ", file)
+
+  if(length(x) > 1) {
+    quoted_tex <- lapply(x, quote_from_tex, file = file)
+  } else {
+    tex <- readLines(file)
+    start <- which(grepl(paste0("% <@~{#", x, "}"), x = tex, fixed = TRUE))
+
+    if(length(start) == 0) {
+      warning(label_warning)
+      return(NULL)
+    } else if(length(start) > 1) {
+      stop(paste0("Each quote label can only be used once. ", paste0("'", x, "'", collapse = ", "), " was found ", length(start), " times."))
+    } else {
+      end <- which(grepl("% ~@>", x = tex[start:length(tex)], fixed = TRUE))[1] + start - 1
+
+      quoted_tex <- paste(
+        paste("> ", tex[(start + 1)])
+        , paste(tex[(start + 2):(end - 1)], collapse = "\n")
+        , "\n"
+        , sep = "\n"
+      )
+    }
+  }
+  knitr::asis_output(quoted_tex)
+}

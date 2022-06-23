@@ -1,0 +1,1052 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa6}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={The title},
+  pdfauthor={First Author1 \& Ernst-August Doelle1,2},
+  pdflang={en-EN},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{keywords\newline\indent Word count: X}
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{The title}
+\author{First Author\textsuperscript{1} \& Ernst-August Doelle\textsuperscript{1,2}}
+\date{}
+
+
+\shorttitle{Title}
+
+\authornote{
+
+Correspondence concerning this article should be addressed to First Author, Postal address. E-mail: \href{mailto:my@email.com}{\nolinkurl{my@email.com}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} Wilhelm-Wundt-University\\\textsuperscript{2} Konstanz Business School}
+
+\abstract{%
+Enter abstract here (note the indentation, if you start a new paragraph).
+}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_table }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(cars, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\CommentTok{\# Create data}
+  \FunctionTok{round}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\AttributeTok{Mean =} \FunctionTok{mean}\NormalTok{(x), }\AttributeTok{SD =} \FunctionTok{sd}\NormalTok{(x), }\AttributeTok{Min =} \FunctionTok{min}\NormalTok{(x), }\AttributeTok{Max =} \FunctionTok{max}\NormalTok{(x)), }\DecValTok{2}\NormalTok{)}
+\NormalTok{)}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table[}\DecValTok{1}\NormalTok{, , }\AttributeTok{drop =} \ConstantTok{FALSE}\NormalTok{]}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"0 Single row table."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{small =} \ConstantTok{TRUE}
+\NormalTok{  , }\AttributeTok{placement =} \ConstantTok{NULL}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-2}0 Single row table.}
+
+\small{
+
+\begin{tabular}{lrr}
+\toprule
+ & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+Mean & 15.40 & 42.98\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"1 A small table with custom number formatting."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{font\_size =} \StringTok{"small"}
+\NormalTok{  , }\AttributeTok{digits =} \DecValTok{3}
+\NormalTok{  , }\AttributeTok{format.args =} \FunctionTok{list}\NormalTok{(}\AttributeTok{decimal.mark =} \StringTok{","}\NormalTok{, }\AttributeTok{big.mark =} \StringTok{""}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-3}1 A small table with custom number formatting.}
+
+\small{
+
+\begin{tabular}{lrr}
+\toprule
+ & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+Mean & 15,400 & 42,980\\
+SD & 5,290 & 25,770\\
+Min & 4,000 & 2,000\\
+Max & 25,000 & 120,000\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{test =}\NormalTok{ my\_table}
+\NormalTok{    , }\StringTok{\textasciigrave{}}\AttributeTok{moar test}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ my\_table}
+\NormalTok{  )}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"2 A tiny merged table (list of two) with added stub heading. Not escaped."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{escape =} \ConstantTok{FALSE}
+\NormalTok{  , }\AttributeTok{font\_size =} \StringTok{"tiny"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-4}2 A tiny merged table (list of two) with added stub heading. Not escaped.}
+
+\tiny{
+
+\begin{tabular}{lrr}
+\toprule
+Desciptives & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+test &  & \\
+\ \ \ Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+\ \ \ Max & 25.00 & 120.00\\
+moar test &  & \\
+\ \ \ Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+\ \ \ Max & 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{test =}\NormalTok{ my\_table}
+\NormalTok{    , }\StringTok{\textasciigrave{}}\AttributeTok{moar test}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ my\_table}
+\NormalTok{  )}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"2.25 A merged table (list of two) with table spanners."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{merge\_method =} \StringTok{"table\_spanner"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-5}2.25 A merged table (list of two) with table spanners.}
+
+\begin{tabular}{lrr}
+\toprule
+Desciptives & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+\multicolumn{3}{c}{test}\\
+Mean & 15.40 & 42.98\\
+SD & 5.29 & 25.77\\
+Min & 4.00 & 2.00\\
+Max & 25.00 & 120.00\\
+\multicolumn{3}{c}{moar test}\\
+Mean & 15.40 & 42.98\\
+SD & 5.29 & 25.77\\
+Min & 4.00 & 2.00\\
+Max & 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{var\_labelled }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(my\_table)}
+\FunctionTok{variable\_label}\NormalTok{(var\_labelled) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{speed =} \StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{alpha$"}\NormalTok{, }\AttributeTok{dist =} \StringTok{"$}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{beta$"}\NormalTok{)}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{test =}\NormalTok{ var\_labelled}
+\NormalTok{    , }\StringTok{\textasciigrave{}}\AttributeTok{moar test}\StringTok{\textasciigrave{}} \OtherTok{=}\NormalTok{ var\_labelled}
+\NormalTok{  )}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"2.5 A merged table (list of two) with added stub heading and variable labels. Not escaped."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{escape =} \ConstantTok{FALSE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-6}2.5 A merged table (list of two) with added stub heading and variable labels. Not escaped.}
+
+\begin{tabular}{lrr}
+\toprule
+Desciptives & \multicolumn{1}{c}{$\alpha$} & \multicolumn{1}{c}{$\beta$}\\
+\midrule
+test &  & \\
+\ \ \ Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+\ \ \ Max & 25.00 & 120.00\\
+moar test &  & \\
+\ \ \ Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+\ \ \ Max & 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{test =}\NormalTok{ my\_table}
+\NormalTok{  )}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"3 A \textquotesingle{}merged\textquotesingle{} table (list of one) with added stub heading."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-7}3 A 'merged' table (list of one) with added stub heading.}
+
+\begin{tabular}{lrr}
+\toprule
+Desciptives & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+test &  & \\
+\ \ \ Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+\ \ \ Max & 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_table2 }\OtherTok{\textless{}{-}}\NormalTok{ my\_table}
+\FunctionTok{rownames}\NormalTok{(my\_table2) }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(my\_table2)}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table2}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"4 Test if simple row numbers are omitted from table."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-8}4 Test if simple row numbers are omitted from table.}
+
+\begin{tabular}{lr}
+\toprule
+speed & \multicolumn{1}{c}{dist}\\
+\midrule
+15.40 & 42.98\\
+5.29 & 25.77\\
+4.00 & 2.00\\
+25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{A =}\NormalTok{ my\_table2, }\AttributeTok{B =}\NormalTok{ my\_table2)}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"5 Test if simple row numbers are omitted from merged table (list of two)."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-9}5 Test if simple row numbers are omitted from merged table (list of two).}
+
+\begin{tabular}{lr}
+\toprule
+speed & \multicolumn{1}{c}{dist}\\
+\midrule
+A & \\
+\ \ \ 15.40 & 42.98\\
+\ \ \ 5.29 & 25.77\\
+\ \ \ 4.00 & 2.00\\
+\ \ \ 25.00 & 120.00\\
+B & \\
+\ \ \ 15.40 & 42.98\\
+\ \ \ 5.29 & 25.77\\
+\ \ \ 4.00 & 2.00\\
+\ \ \ 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{A =}\NormalTok{ my\_table2[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{, ], }\AttributeTok{B =}\NormalTok{ my\_table2)}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"5.25 Test if simple row numbers are omitted from merged table with unequal row numbers (list of two)."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-10}5.25 Test if simple row numbers are omitted from merged table with unequal row numbers (list of two).}
+
+\begin{tabular}{lr}
+\toprule
+speed & \multicolumn{1}{c}{dist}\\
+\midrule
+A & \\
+\ \ \ 15.40 & 42.98\\
+\ \ \ 5.29 & 25.77\\
+B & \\
+\ \ \ 15.40 & 42.98\\
+\ \ \ 5.29 & 25.77\\
+\ \ \ 4.00 & 2.00\\
+\ \ \ 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{A =}\NormalTok{ cars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{, ], }\AttributeTok{B =}\NormalTok{ cars[}\DecValTok{3}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, ])}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"5.25 Test if simple continued row numbers are omitted from merged table (list of two)."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-11}5.25 Test if simple continued row numbers are omitted from merged table (list of two).}
+
+\begin{tabular}{lr}
+\toprule
+speed & \multicolumn{1}{c}{dist}\\
+\midrule
+A & \\
+\ \ \ 4.00 & 2.00\\
+\ \ \ 4.00 & 10.00\\
+B & \\
+\ \ \ 7.00 & 4.00\\
+\ \ \ 7.00 & 22.00\\
+\ \ \ 8.00 & 16.00\\
+\ \ \ 9.00 & 10.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{list}\NormalTok{(}\AttributeTok{A =}\NormalTok{ cars[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{, ], }\AttributeTok{B =}\NormalTok{ cars[}\DecValTok{5}\SpecialCharTok{:}\DecValTok{7}\NormalTok{, ]}
+\NormalTok{      )}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"5.25 Test if simple discontinued row numbers are preserved from merged table(list of two)."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()"}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-12}5.25 Test if simple discontinued row numbers are preserved from merged table(list of two).}
+
+\begin{tabular}{lrr}
+\toprule
+Desciptives & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+A &  & \\
+\ \ \ 1 & 4.00 & 2.00\\
+\ \ \ 2 & 4.00 & 10.00\\
+B &  & \\
+\ \ \ 5 & 8.00 & 16.00\\
+\ \ \ 6 & 9.00 & 10.00\\
+\ \ \ 7 & 10.00 & 18.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table()}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"6 Test of column spanner and stub indenting."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()."}
+\NormalTok{  , }\AttributeTok{row.names =} \ConstantTok{TRUE}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{col\_spanners =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Measure =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{stub\_indents =} \FunctionTok{list}\NormalTok{(}\DecValTok{2}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-13}6 Test of column spanner and stub indenting.}
+
+\begin{tabular}{lrr}
+\toprule
+ & \multicolumn{2}{c}{Measure} \\
+\cmidrule(r){2-3}
+Desciptives & \multicolumn{1}{c}{speed} & \multicolumn{1}{c}{dist}\\
+\midrule
+Mean & 15.40 & 42.98\\
+\ \ \ SD & 5.29 & 25.77\\
+\ \ \ Min & 4.00 & 2.00\\
+Max & 25.00 & 120.00\\
+\bottomrule
+\addlinespace
+\end{tabular}
+
+\begin{tablenotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table().}
+\end{tablenotes}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_table }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(my\_table), }\FunctionTok{t}\NormalTok{(my\_table), }\FunctionTok{t}\NormalTok{(my\_table))}
+\FunctionTok{rownames}\NormalTok{(my\_table) }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(my\_table)}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"7 Test of midurles and landscape mode and named stub indentation."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()."}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{col\_spanners =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Measure =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{midrules =} \DecValTok{4}
+\NormalTok{  , }\AttributeTok{stub\_indents =} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{), }\AttributeTok{Jo =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\SpecialCharTok{:}\DecValTok{6}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{landscape =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table().}
+\end{TableNotes}
+
+\begin{longtable}{lrrl}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:unnamed-chunk-14}7 Test of midurles and landscape mode and named stub indentation.}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:unnamed-chunk-14} continued}}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endhead
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+Jo &  &  & \\ \midrule
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_table }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(my\_table, my\_table, my\_table, my\_table, my\_table, my\_table, my\_table)}
+\FunctionTok{rownames}\NormalTok{(my\_table) }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(my\_table)}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"8 A long table."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()."}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{col\_spanners =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Measure =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{midrules =} \DecValTok{4}
+\NormalTok{  , }\AttributeTok{stub\_indents =} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{), }\AttributeTok{Jo =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\SpecialCharTok{:}\DecValTok{6}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{longtable =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}
+\begin{ThreePartTable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table().}
+\end{TableNotes}
+
+\begin{longtable}{lrrl}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:unnamed-chunk-15}8 A long table.}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:unnamed-chunk-15} continued}}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endhead
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+Jo &  &  & \\ \midrule
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{ThreePartTable}
+\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{apa\_table}\NormalTok{(}
+\NormalTok{  my\_table}
+\NormalTok{  , }\AttributeTok{align =} \FunctionTok{c}\NormalTok{(}\StringTok{"l"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{  , }\AttributeTok{caption =} \StringTok{"9 A long table in landscape mode."}
+\NormalTok{  , }\AttributeTok{note =} \StringTok{"This table was created using apa\_table()."}
+\NormalTok{  , }\AttributeTok{added\_stub\_head =} \StringTok{"Desciptives"}
+\NormalTok{  , }\AttributeTok{col\_spanners =} \FunctionTok{list}\NormalTok{(}\AttributeTok{Measure =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{midrules =} \DecValTok{4}
+\NormalTok{  , }\AttributeTok{stub\_indents =} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{), }\AttributeTok{Jo =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\SpecialCharTok{:}\DecValTok{6}\NormalTok{))}
+\NormalTok{  , }\AttributeTok{longtable =} \ConstantTok{TRUE}
+\NormalTok{  , }\AttributeTok{landscape =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} This table was created using apa\_table().}
+\end{TableNotes}
+
+\begin{longtable}{lrrl}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:unnamed-chunk-16}9 A long table in landscape mode.}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:unnamed-chunk-16} continued}}\\
+\toprule
+ & \multicolumn{2}{c}{Measure}  &\\
+\cmidrule(r){2-3}
+Mean & \multicolumn{1}{c}{SD} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max}\\
+\midrule
+\endhead
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+Jo &  &  & \\ \midrule
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+\ \ \ 15.40 & 5.29 & 4.00 & 25.00\\
+\ \ \ 42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+15.40 & 5.29 & 4.00 & 25.00\\
+42.98 & 25.77 & 2.00 & 120.00\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{counts }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{,}\DecValTok{17}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{12}\NormalTok{)}
+\NormalTok{outcome }\OtherTok{\textless{}{-}} \FunctionTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{9}\NormalTok{)}
+\NormalTok{treatment }\OtherTok{\textless{}{-}} \FunctionTok{gl}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\NormalTok{d.AD }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(treatment, outcome, counts)}
+\NormalTok{glm.D93 }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(counts }\SpecialCharTok{\textasciitilde{}}\NormalTok{ outcome }\SpecialCharTok{+}\NormalTok{ treatment, }\AttributeTok{family =} \FunctionTok{poisson}\NormalTok{())}
+
+\FunctionTok{apa\_table}\NormalTok{(}
+  \FunctionTok{apa\_print}\NormalTok{(glm.D93)}\SpecialCharTok{$}\NormalTok{table}
+\NormalTok{  , }\AttributeTok{align =} \StringTok{"lrrrr"}
+\NormalTok{  , }\AttributeTok{escape =} \ConstantTok{FALSE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:unnamed-chunk-17}}
+
+\begin{tabular}{lrrrr}
+\toprule
+Predictor & \multicolumn{1}{c}{$b$} & \multicolumn{1}{c}{95\% CI} & \multicolumn{1}{c}{$z$} & \multicolumn{1}{c}{$p$}\\
+\midrule
+Intercept & 3.04 & {}[2.70, 3.37] & 17.81 & < .001\\
+Outcome2 & -0.45 & {}[-0.86, -0.06] & -2.25 & .025\\
+Outcome3 & -0.29 & {}[-0.68, 0.08] & -1.52 & .128\\
+Treatment2 & 0.00 & {}[-0.39, 0.39] & 0.00 & > .999\\
+Treatment3 & 0.00 & {}[-0.39, 0.39] & 0.00 & > .999\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+
+\end{document}
