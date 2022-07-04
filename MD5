@@ -1,4 +1,4 @@
-9963621817c9044ee1294048947a672e *DESCRIPTION
+aa9b01c4a3b960e75746a3550a7a1f69 *DESCRIPTION
 54f4323fccd3329d89bc4e4272b23b3b *LICENSE
 d61dd3b6bee7708ba1aeffd54bea4eda *NAMESPACE
 c9c07f807c72b75ef8063d65d11236f7 *R/add_custom_effect_sizes.R
@@ -48,14 +48,14 @@ e94693f98f85c9f3f5bf718cf9df8644 *R/utils_text.R
 52074b3e4476418b40214f3f4f39b388 *R/variable_label.R
 2bc01004837fe09e7f12f294c4ac9853 *R/word_title_page.R
 eb8397c1016c90147759a637d2e132a9 *README.md
-f06306563f8239d31035dccb15869456 *build/partial.rdb
+7358f40282890e3079e7fabe5685986b *build/partial.rdb
 80b3bcba3530164e4d13d3f0c33c8531 *build/vignette.rds
 74db3df0e4e5a12c6df70532bcb5f3c1 *inst/CITATION
-72661499c3fea7e174bf3229508425a1 *inst/NEWS.md
+455ad5479e3935ca7b96141a8f7d3c17 *inst/NEWS.md
 1b14b23fa9327aeda45c8f9cadcefc46 *inst/WORDLIST
 659ace92a282612071e033e0098616b5 *inst/doc/extending_apa_print.R
 23555de88d489b6914dc2f40b7289384 *inst/doc/extending_apa_print.Rmd
-57afaccbfe5f5afd801d76854fd2484f *inst/doc/extending_apa_print.html
+a67968685d3e88c24fb5dac0110b83c0 *inst/doc/extending_apa_print.html
 2b9c332365d37504db03727c6dfcb790 *inst/doc/papaja.pdf
 58182a88f78fc6699895e760b06f2e44 *inst/doc/papaja.pdf.asis
 fb51716b6d69e3e6ebec145271d3da9d *inst/example/example.docx
@@ -201,7 +201,7 @@ cd84b82520c3eadd4bf02795063076d9 *tests/testthat/test_apa_table.R
 6fd660f6ebda690a76ce6614651f994d *tests/testthat/test_apa_table.Rmd
 d65f75dfc99bff48a245f87254337d69 *tests/testthat/test_apa_table.tex
 7e1c2dd4e546e7f282c72e9dbb314757 *tests/testthat/test_calculations.R
-9722d34f490cf598f7f9f7001101f1c7 *tests/testthat/test_custom_effect_sizes.R
+60ec814aa20ff8705eb29b6ff12309ee *tests/testthat/test_custom_effect_sizes.R
 94784f8ba1a0b59c40f7a7491daf3636 *tests/testthat/test_lookup_tables.R
 da42c334474263b9661c64d58ea82b9e *tests/testthat/test_meta.R
 8f0f4fc2acf325eede1f1cd3a1a60d24 *tests/testthat/test_print_anova.R

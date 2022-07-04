@@ -542,10 +542,10 @@ used to round, set decimal as well as thousands separators, or remove
 leading zeros.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">3</span>) <span class="sc">*</span> <span class="fl">1e4</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_num</span>(x)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;-12,319.97&quot; &quot;-19,461.57&quot; &quot;-12,546.28&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;-17,402.11&quot; &quot;-3,444.68&quot;  &quot;-14,935.10&quot;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_num</span>(x, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">big.mark =</span> <span class="st">&quot;.&quot;</span>, <span class="at">decimal.mark =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;-12.319,973&quot; &quot;-19.461,571&quot; &quot;-12.546,277&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;-17.402,114&quot; &quot;-3.444,676&quot;  &quot;-14.935,103&quot;</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_num</span>(<span class="cn">Inf</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;$\\infty$&quot;</span></span></code></pre></div>
@@ -564,15 +564,15 @@ typesetting degrees of freedom.</p>
 <p>Finally, <code>apa_interval()</code> can be used to typeset interval
 estimates.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_interval</span>(<span class="fu">rnorm</span>(<span class="dv">2</span>), <span class="at">conf.int =</span> <span class="fl">0.95</span>, <span class="at">interval_type =</span> <span class="st">&quot;CI&quot;</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% CI [0.71, -0.01]&quot;</span></span></code></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% CI [-0.24, -0.38]&quot;</span></span></code></pre></div>
 <p>Again, there are two wrappers that set appropriate defaults to
 typeset frequentist confidence intervals and Bayesian highest-density
 intervals.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_confint</span>(<span class="fu">rnorm</span>(<span class="dv">2</span>), <span class="at">conf.int =</span> <span class="fl">0.95</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% CI [-1.01, 1.75]&quot;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% CI [-0.63, 0.47]&quot;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">apa_hdint</span>(<span class="fu">rnorm</span>(<span class="dv">2</span>), <span class="at">conf.int =</span> <span class="fl">0.95</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% HDI [-0.13, 0.58]&quot;</span></span></code></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;95\\% HDI [0.96, -1.50]&quot;</span></span></code></pre></div>
 </div>
 <div id="typesetting-model-terms" class="section level2">
 <h2>Typesetting model terms</h2>
@@ -649,7 +649,7 @@ default arguments and passes the result onto
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         mse = mse, observed = observed, in_paren = in_paren, </span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         ...)</span></span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; }</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x7f99145c8b50&gt;</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;bytecode: 0x7fc10c899ac0&gt;</span></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;environment: namespace:papaja&gt;</span></span></code></pre></div>
 <p>This approach also ensures that a variety of object types are
 supported while minimizing code redundancy.</p>
