@@ -230,9 +230,6 @@ apa_num.numeric <- function(
   is_scientific <- rep(tolower(ellipsis$format), length.out = length_x) %in% c("e", "g", "fg")
 
   ten_power_digits <- 10^digits
-  x[!is_scientific] <- 0 + round(x[!is_scientific] * ten_power_digits[!is_scientific]) / ten_power_digits[!is_scientific]
-
-
 
   if(any(not_zero)) {
 
@@ -244,6 +241,8 @@ apa_num.numeric <- function(
 
     prepend[abs_too_small] <- ifelse(is_negative[abs_too_small], "> ", "< ")
   }
+
+  x[!is_scientific] <- 0 + round(x[!is_scientific] * ten_power_digits[!is_scientific]) / ten_power_digits[!is_scientific]
 
   if(any(not_gt1)) {
     if(any(not_gt1 & abs(x) > 1, na.rm = TRUE)) warning("You specified gt1 = FALSE, but passed absolute value(s) that exceed 1.")
@@ -431,12 +430,13 @@ print_p <- apa_p
 #'   should be determined for each element of `x` separately (the default),
 #'   or for the complete vector `x`.
 #' @inherit apa_num return
+#' @inheritParams base::formatC
 #' @seealso [apa_num()], [apa_p()]
 #' @examples
 #' apa_df(c(1, 1.23151))
 #' @export
 
-apa_df <- function(x, digits = 2L, elementwise = TRUE) {
+apa_df <- function(x, digits = 2L, big.mark = "", elementwise = TRUE) {
 
   if(is.null(x))    return(NULL)
   if(is.integer(x)) return(apa_num(x))
@@ -456,7 +456,7 @@ apa_df <- function(x, digits = 2L, elementwise = TRUE) {
     digits <- 0L
   }
 
-  apa_num(x, digits = digits)
+  apa_num(x, digits = digits, big.mark = big.mark)
 }
 
 #' @rdname apa_df
