@@ -57,9 +57,18 @@ parentheses. If \code{TRUE}, parentheses in the formatted string (e.g., those
 enclosing degrees of freedom) are replaced with brackets.}
 
 \item{...}{
-  Arguments passed on to \code{\link[=apa_num]{apa_num}}
+  Arguments passed on to \code{\link[=apa_num.numeric]{apa_num.numeric}}
   \describe{
-    \item{\code{}}{}
+    \item{\code{gt1}}{Logical. Indicates if the statistic can, in principle, have an
+absolute value greater than 1. If \code{FALSE}, leading zeros are
+omitted.}
+    \item{\code{zero}}{Logical. Indicates if the statistic can, in principle, be 0. If
+\code{FALSE}, a string of the form \verb{< 0.001} is returned instead of 0.}
+    \item{\code{na_string}}{Character. String to print if any element of \code{x} is \code{NA}.}
+    \item{\code{use_math}}{Logical. Indicates whether to use \code{$} in the output so that
+\code{Inf} or scientific notation is rendered correctly.}
+    \item{\code{add_equals}}{Logical. Indicates if the output string should be
+prepended with an \code{=}.}
   }}
 }
 \description{
@@ -136,6 +145,7 @@ doi: \doi{10.18637/jss.v020.i08}
 \code{\link[stats:confint]{stats::confint()}}, \code{\link[MBESS:ci.pvaf]{MBESS::ci.pvaf()}}
 
 Other apa_print: 
+\code{\link{apa_print}()},
 \code{\link{apa_print.BFBayesFactor}()},
 \code{\link{apa_print.aov}()},
 \code{\link{apa_print.emmGrid}()},
@@ -143,8 +153,7 @@ Other apa_print:
 \code{\link{apa_print.htest}()},
 \code{\link{apa_print.list}()},
 \code{\link{apa_print.lme}()},
-\code{\link{apa_print.merMod}()},
-\code{\link{apa_print}()}
+\code{\link{apa_print.merMod}()}
 }
 \concept{apa_print}
 \value{

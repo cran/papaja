@@ -84,9 +84,8 @@ validate <- function(
 #'    \describe{
 #'      \item{`estimate`}{A (named list of) character strings giving effect-size estimates.}
 #'      \item{`statistic`}{A (named list of) character strings giving test statistic, parameters, and *p* values.}
-#'      \item{`full_result`}{A (named list of) character strings comprised of `estimate` and `statistic`` for each factor.}
-#'      \item{`table`}{A data frame containing all results; can, for example, be passed to [apa_table()].
-#'      }
+#'      \item{`full_result`}{A (named list of) character strings comprised of `estimate` and `statistic` for each factor.}
+#'      \item{`table`}{A data frame containing all results; can, for example, be passed to [apa_table()].}
 #'    }
 #' @keywords internal
 
@@ -473,5 +472,25 @@ no_method <- function(x) {
     , "' are currently not supported (no method defined)."
     , "\nVisit https://github.com/crsh/papaja/issues to request support for this class."
     , call. = FALSE
+  )
+}
+
+#' Simple language names from BCP 47 tags
+#'
+#' Internal function to translate BCP 47 tags to simple language names.
+
+#' @param x Character. BCP 47 tag.
+#' @return Character. Simple language name.
+#' @keywords internal
+
+parse_bcp47 <- function(x) {
+  lang <- gsub("-[A-Z]{2}$", "", x)
+
+  switch(
+    lang
+    , en = "english"
+    , de = "german"
+    , nl = "dutch"
+    , "english"
   )
 }

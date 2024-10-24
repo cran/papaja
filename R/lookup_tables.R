@@ -23,6 +23,8 @@ lookup_names <- c(
   , "BIC"     = "BIC"
   , "npar"    = "n.parameters"
   , "alternative" = "alternative"
+  , "Deviance"    = "deviance"
+  , "Resid..Dev"  = "residual.deviance" # from broom
   # term
   , "Effect"     = "term"
   , "Term"       = "term"
@@ -47,6 +49,8 @@ lookup_names <- c(
   , "delta"                     = "estimate"
   , "proportion"                = "estimate"
   , "p"                         = "estimate"
+  # binomial test:
+  , "probability.of.success"    = "estimate"
   # estimate from effectsize package
   , "Eta2"             = "estimate"
   , "Eta2_partial"     = "estimate"
@@ -79,7 +83,9 @@ lookup_names <- c(
   , "F.value"   = "statistic"
   , "F"         = "statistic"
   , "F.ratio"   = "statistic"
+  , "F.values"  = "statistic"
   , "LRT"       = "statistic"
+  , "LR.Chisq"  = "statistic"
   , "Chisq"     = "statistic"
   , "chisq"     = "statistic"
   , "X.squared" = "statistic"
@@ -97,6 +103,8 @@ lookup_names <- c(
   , "logbf01"      = "statistic"
   , "Bartlett.s.K.2"          = "statistic"
   , "Bartlett.s.K.squared"    = "statistic"
+  , "Rao" = "statistic"
+  , "Cp"  = "statistic"
   # df, df.residual
   , "multivariate.df1" = "multivariate.df"
   , "multivariate.df2" = "multivariate.df.residual"
@@ -119,9 +127,11 @@ lookup_names <- c(
   , "denom.df"   = "df.residual"
   , "den.df"     = "df.residual"
   , "Res.Df"     = "df.residual"
+  , "Resid..Df"  = "df.residual"
   # p.value
   , "p.value"    = "p.value"
   , "Pr..Chisq." = "p.value"
+  , "Pr..Chi."   = "p.value"
   , "Pr..F."     = "p.value"
   , "Pr..PB."    = "p.value"
   , "Pr...t.."   = "p.value"
@@ -146,6 +156,8 @@ lookup_labels <- c(
   , "BIC"     = "$\\mathit{BIC}$"
   , "npar"    = "$k$"
   , "alternative" = "$\\mathcal{H}_1$"
+  , "Deviance"   = "$\\mathit{Dev}$"
+  , "Resid..Dev" = "$\\mathit{Dev}_{\\mathrm{res}}$"
   # term
   , "Effect"     = "Effect"
   , "Term"       = "Term"
@@ -167,6 +179,7 @@ lookup_labels <- c(
   , "difference.in.proportions" = "$\\Delta \\hat\\pi$"
   , "proportion"                = "$\\hat\\pi$"
   , "p"                         = "$\\hat\\pi$"
+  , "probability.of.success"    = "$\\hat\\pi$"
   , "delta"                     = "$\\delta$"
   # estimate from effectsize package
   , "Eta2"             = "$\\hat{\\eta}^2$"
@@ -196,8 +209,10 @@ lookup_labels <- c(
   , "F.value"   = "$F$"
   , "F"         = "$F$"
   , "F.ratio"   = "$F$"
+  , "F.values"  = "$F$"
   , "approx.F"  = "$F$"
   , "LRT"       = "$\\chi^2$"
+  , "LR.Chisq"  = "$\\chi^2$"
   , "chisq"     = "$\\chi^2$"
   , "Chisq"     = "$\\chi^2$"
   , "X.squared" = "$\\chi^2$"
@@ -215,6 +230,8 @@ lookup_labels <- c(
   , "logbf01"      = "$\\log \\mathrm{BF}_{\\textrm{01}}$"
   , "Bartlett.s.K.2"          = "$K^2$"
   , "Bartlett.s.K.squared"    = "$K^2$"
+  , "Rao" = "$\\mathit{RS}$"
+  , "Cp"  = "$C_p$"
   # df, df.residual
   , "multivariate.df" = "$\\mathit{df}$"
   , "multivariate.df.residual" = "$\\mathit{df}_{\\mathrm{res}}$"
@@ -243,6 +260,7 @@ lookup_labels <- c(
   , "Pr...z.."    = "$p$"
   , "pvalues"     = "$p$"
   , "Pr..Chisq."  = "$p$"
+  , "Pr..Chi."    = "$p$"
   , "Pr..F."      = "$p$"
   , "Pr..PB."     = "$p$"
   , "adj.p.value" = "$p_\\mathrm{adj}$"
@@ -304,6 +322,11 @@ localize <- function(x) {
       , note = "Note"
       , correspondence = "Correspondence concerning this article should be addressed to "
       , email = "E-mail"
+      , version = "Version"
+      , and = "and"
+      , cite_r_packages_s = "and the R-package"
+      , cite_r_packages_pl = "and the R-packages"
+      , cite_r_footnote = "We, furthermore, used the R-packages"
     )
     , german = list(
       author_note = "Anmerkung des Autors"
@@ -315,6 +338,11 @@ localize <- function(x) {
       , note = "Anmerkung"
       , correspondence = "Schriftverkehr diesen Artikel betreffend sollte adressiert sein an "
       , email = "E-Mail"
+      , version = "Version"
+      , and = "und"
+      , cite_r_packages_s = "und das R-Paket"
+      , cite_r_packages_pl = "und die R-Pakete"
+      , cite_r_footnote = "Wir verwendeten zudem die R-Pakete"
     )
     , dutch = list(
       author_note = "Over de auteur"
@@ -326,6 +354,11 @@ localize <- function(x) {
       , note = "Opmerking"
       , correspondence = "Correspondentie betreffende dit artikel wordt geadresseerd aan "
       , email = "E-mail"
+      , verion = "Versie"
+      , and = "en"
+      , cite_r_packages_s = "en het R-pakket"
+      , cite_r_packages_pl = "en de R-pakketten"
+      , cite_r_footnote = "We gebruikten bovendien de R-pakketten"
     )
   )
 }

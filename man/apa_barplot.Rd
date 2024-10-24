@@ -30,6 +30,7 @@ apa_barplot(data, ...)
   xlab = NULL,
   ylab = NULL,
   main = NULL,
+  set_par = TRUE,
   ...
 )
 
@@ -44,11 +45,7 @@ apa_barplot(data, ...)
 \arguments{
 \item{data}{A \code{data.frame} that contains the data, or an object of class \code{afex_aov}.}
 
-\item{...}{
-  Arguments passed on to \code{\link[=apa_factorial_plot]{apa_factorial_plot}}
-  \describe{
-    \item{\code{}}{}
-  }}
+\item{...}{Further arguments passed on to \code{\link[=apa_factorial_plot]{apa_factorial_plot()}}.}
 
 \item{id}{Character. Variable name that identifies subjects.}
 
@@ -95,6 +92,8 @@ case, multiple lines are drawn, where the dimensions of the matrix determine the
 
 \item{main}{Character or expression. For up to two factors, simply specify the main title. If you stratify the data by more than two factors,
 either specify a single value that will be added to automatically generated main title, \emph{or} specify an array of multiple titles, one for each plot area.}
+
+\item{set_par}{Logical. Determines whether \code{par(mfrow = .)} should be set for multi-panel plots.}
 }
 \value{
 A named (nested) list of plot options including raw and derived data. \emph{Note that the structure of the return value is about to change in a forthcoming release of papaja.}
@@ -113,7 +112,7 @@ distribution function that will be covered. For instance, if you want a 98\% con
 \subsection{Customization of plot elements}{
 
 \code{\link[=apa_factorial_plot]{apa_factorial_plot()}} and its descendants \code{\link[=apa_barplot]{apa_barplot()}}, \code{\link[=apa_lineplot]{apa_lineplot()}},
-and \code{\link[=apa_beeplot]{apa_beeplot()}} are wrapper functions that sequentially call:
+\code{\link[=apa_beeplot]{apa_beeplot()}}, and \code{\link[=apa_violinplot]{apa_violinplot()}} are wrapper functions that sequentially call:
 \itemize{
 \item \code{\link[=plot.new]{plot.new()}},
 \item \code{\link[=plot.window]{plot.window()}},
@@ -121,6 +120,7 @@ and \code{\link[=apa_beeplot]{apa_beeplot()}} are wrapper functions that sequent
 \item \code{\link[=title]{title()}} for axis labels and titles,
 \item \code{\link[=rect]{rect()}} for bars in bar plots,
 \item \code{\link[=points]{points()}} for bee swarms,
+\item \code{\link[=density]{density()}} and \code{\link[=polygon]{polygon()}} for violins,
 \item \code{\link[=lines]{lines()}} for lines connecting central tendency points,
 \item \code{\link[=arrows]{arrows()}} for error bars,
 \item \code{\link[=points]{points()}} for tendency points,
@@ -162,6 +162,7 @@ apa_barplot(
 Other plots for factorial designs: 
 \code{\link{apa_beeplot}()},
 \code{\link{apa_factorial_plot}()},
-\code{\link{apa_lineplot}()}
+\code{\link{apa_lineplot}()},
+\code{\link{apa_violinplot}()}
 }
 \concept{plots for factorial designs}

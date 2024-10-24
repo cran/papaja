@@ -20,13 +20,13 @@
 #'   respectively) with attribute `conf.level` set, e.g., when calculating
 #'   bootstrapped confidence intervals.
 #' @inheritParams glue_apa_results
-#' @inheritDotParams apa_num
+#' @inheritDotParams apa_num.numeric
 #' @details
 #'   The function should work on a wide range of `htest` objects. Due to the
 #'   large number of functions that produce these objects and their
 #'   idiosyncrasies, the returned strings should be compared to the original
 #'   object. If you experience inaccuracies you may report these
-#'   [here]{https://github.com/crsh/papaja/issues} (please include
+#'   [here](https://github.com/crsh/papaja/issues) (please include
 #'   a reproducible example in your report).
 #'
 #'   `stat_name` and `est_name` are placed in the output string and are thus
@@ -131,6 +131,9 @@ apa_print.htest <- function(
     x_list
     , stringsAsFactors = FALSE
   )
+  y$number.of.successes <- NULL
+  y$number.of.trials <- NULL
+
   if(!identical(conf_int, list(NULL))) y$conf.int <- conf_int
 
   # sanitize table ----

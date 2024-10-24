@@ -11,14 +11,14 @@
 \alias{apa_print.anova}
 \alias{apa_print.manova}
 \alias{apa_print.summary.manova}
-\title{Typeset Statistical Results from ANOVA}
+\title{Typeset Statistical Results from Analysis of Variance (or Deviance)}
 \usage{
 \method{apa_print}{aov}(
   x,
   estimate = getOption("papaja.estimate_anova", "ges"),
   observed = NULL,
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -28,7 +28,7 @@
   estimate = getOption("papaja.estimate_anova", "ges"),
   observed = NULL,
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -38,7 +38,7 @@
   estimate = getOption("papaja.estimate_anova", "ges"),
   observed = NULL,
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -48,7 +48,7 @@
   estimate = getOption("papaja.estimate_anova", "ges"),
   observed = NULL,
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -59,7 +59,7 @@
   observed = NULL,
   correction = getOption("papaja.sphericity_correction"),
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -70,7 +70,7 @@
   observed = NULL,
   correction = getOption("papaja.sphericity_correction"),
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -81,7 +81,7 @@
   observed = NULL,
   correction = getOption("papaja.sphericity_correction"),
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -91,7 +91,7 @@
   estimate = getOption("papaja.estimate_anova", "ges"),
   observed = NULL,
   intercept = FALSE,
-  mse = TRUE,
+  mse = getOption("papaja.mse", TRUE),
   in_paren = FALSE,
   ...
 )
@@ -115,9 +115,11 @@ automatically deduced from \code{x}.}
 in output.}
 
 \item{mse}{Logical. Indicates if mean squared errors should be included in
-output. The default is \code{TRUE}, but this can be changed either by supplying
-a different value in the function call or by changing the global default
-via \code{options(papaja.mse = FALSE)}.}
+output. The default is taken from the global option \code{getOption("papaja.mse")}.
+It is \code{FALSE} if the \pkg{effectsize} package is installed and \code{TRUE} if it
+is not installed. This can be changed either by supplying a different value
+in the function call or by changing the global default via
+\code{options(papaja.mse = ...)}.}
 
 \item{in_paren}{Logical. Whether the formatted string is to be reported in
 parentheses. If \code{TRUE}, parentheses in the formatted string (e.g., those
@@ -134,10 +136,11 @@ or \code{"none"} for no correction.}
 reported, see \code{\link[stats]{summary.manova}}.}
 }
 \description{
-These methods take objects from various R functions that calculate ANOVA to
-create formatted character strings to report the results in accordance with
-APA manuscript guidelines. For \code{anova}-objects from model comparisons see
-\code{\link{apa_print.list}}.
+These methods take objects from various R functions that calculate analysis
+of variance (i.e., ANOVA) or analysis of deviance. They create formatted
+character strings to report the results in accordance with APA manuscript
+guidelines. For \code{anova}-objects from model comparisons see
+\code{\link[=apa_print.list]{apa_print.list()}}.
 }
 \details{
 The factor names are sanitized to facilitate their use as list names (see
@@ -146,9 +149,9 @@ replaced by \verb{_}.
 
 Argument \code{estimate} determines which measure of effect size is to be used:
 It is currently possible to provide one of three characters to specify the
-to-be-calculated effect size: \code{"ges"} for generalized \eqn{eta^2},
-\code{"pes"} for partial \eqn{eta^2}, and \code{"es"} for \eqn{eta^2}.
-Note that \eqn{eta^2} is calculated correctly if and only if the design is
+to-be-calculated effect size: \code{"ges"} for generalized \eqn{\eta^2},
+\code{"pes"} for partial \eqn{\eta^2}, and \code{"es"} for \eqn{\eta^2}.
+Note that \eqn{\eta^2} is calculated correctly if and only if the design is
 balanced.
 
 It is also possible to provide a \code{data.frame} with columns \code{estimate},
@@ -178,15 +181,15 @@ Bakeman, R. (2005). Recommended effect size statistics for repeated measures des
 \code{\link[=aov]{aov()}}, \code{\link[car:Anova]{car::Anova()}}, \code{\link[=apa_print.list]{apa_print.list()}}
 
 Other apa_print: 
+\code{\link{apa_print}()},
 \code{\link{apa_print.BFBayesFactor}()},
 \code{\link{apa_print.emmGrid}()},
 \code{\link{apa_print.glht}()},
 \code{\link{apa_print.htest}()},
 \code{\link{apa_print.list}()},
-\code{\link{apa_print.lme}()},
 \code{\link{apa_print.lm}()},
-\code{\link{apa_print.merMod}()},
-\code{\link{apa_print}()}
+\code{\link{apa_print.lme}()},
+\code{\link{apa_print.merMod}()}
 }
 \concept{apa_print}
 \value{

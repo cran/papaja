@@ -4,7 +4,7 @@
 #' a factorial design and set APA-friendly defaults.
 #'
 #' @inherit apa_factorial_plot
-#' @inheritDotParams apa_factorial_plot
+#' @param ... Further arguments passed on to [apa_factorial_plot()].
 #' @family plots for factorial designs
 #' @examples
 #' apa_beeplot(
@@ -68,6 +68,7 @@ apa_beeplot.default <- function(
   , xlab = NULL
   , ylab = NULL
   , main = NULL
+  , set_par = TRUE
   , ...
 ){
   ellipsis <- defaults(
@@ -94,6 +95,7 @@ apa_beeplot.default <- function(
       , xlab = xlab
       , ylab = ylab
       , main = main
+      , set_par = set_par
       , plot = c("points", "error_bars", "swarms")
     )
   )
