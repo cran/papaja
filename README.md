@@ -260,6 +260,10 @@ p <- ggplot(
 p + theme_apa()
 ```
 
+    ## Warning: Computation failed in `stat_summary()`.
+    ## Caused by error in `fun.data()`:
+    ## ! The package "Hmisc" is required.
+
 ![](README_files/figure-gfm/stroop-ggplot-1.png)<!-- -->
 
 ### Usage without RStudio
@@ -344,10 +348,10 @@ by Klein et al. (2018).
 
 [Docker](https://www.docker.com/) is the most widely used
 containerization approach. It is open source and free to use but
-requires some disk space. [CodeOcean](https://codeocean.com/) is a
-commercial service that builds on Docker, facilitates setting up and
-sharing containers and lets you run computations in the cloud. See the
-**papaja** manual on [how to get started using **papaja** with Docker or
+requires some disk space. CodeOcean is a commercial service that builds
+on Docker, facilitates setting up and sharing containers and lets you
+run computations in the cloud. See the **papaja** manual on [how to get
+started using **papaja** with Docker or
 CodeOcean](https://frederikaust.com/papaja_man/tips-and-tricks.html#reproducible-software-environments)
 and [our Docker workflow](https://github.com/crsh/papaja_docker)
 tailored for easy use with **papaja**.

@@ -1,3 +1,12 @@
+# papaja 0.1.4
+
+### Existing functions
+
+- `apa_print().emm_Grid()` and friends no longer capitalize ames of contrasts in the returned `apa_results` list [#603](https://github.com/crsh/papaja/issues/603).
+- `cite_r()`
+  - Now uses Oxford comma to list of R packages
+  - Citation syntax of R itself is no longer broken ([#599](https://github.com/crsh/papaja/issues/599))
+
 # papaja 0.1.3
 
 ### New functions

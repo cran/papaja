@@ -1,7 +1,7 @@
 Package: papaja
 Title: Prepare American Psychological Association Journal Articles with
         R Markdown
-Version: 0.1.3
+Version: 0.1.4
 Description: Tools to create dynamic, submission-ready manuscripts, which
   conform to American Psychological Association manuscript guidelines. We
   provide R Markdown document formats for manuscripts (PDF and Word) and
@@ -15,7 +15,7 @@ Authors@R: c(
     , person("Joseph V.", "Casillas", email = "joseph.casillas@rutgers.edu", role = c("ctb"))
     , person("Rudolf", "Siegel", email = "rudolf.siegel@uni-saarland.de", role = c("ctb"))
   )
-Date: 2024-10-23
+Date: 2025-09-25
 URL: https://github.com/crsh/papaja
 BugReports: https://github.com/crsh/papaja/issues
 Depends: R (>= 4.2), tinylabels (>= 0.2.4)
@@ -24,24 +24,25 @@ Imports: bookdown (>= 0.41), broom (>= 1.0.7), glue (>= 1.8.0), knitr
         utils, yaml (>= 2.3.10), zip (>= 2.3.1)
 Suggests: afex, BayesFactor, beeswarm, boot, car, dplyr (>= 1.1.0),
         effectsize (>= 0.4.4), emmeans, ggforce, ggplot2, latex2exp,
-        lme4, lmerTest, MASS, MBESS, multcomp, nlme, nnet, R.rsp,
-        skimr, spelling, testthat, VGAM
+        lme4, lmerTest, MASS, multcomp, nlme, nnet, R.rsp, skimr,
+        spelling, testthat, VGAM
 SystemRequirements: Rendering the document template requires pandoc (>=
         2.0; https://pandoc.org) and for PDFs a TeX distribution, such
         as TinyTeX (>= 0.12; https://yihui.org/tinytex/)
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr, R.rsp
 Language: en-US
 NeedsCompilation: no
-Packaged: 2024-10-24 09:11:57 UTC; frederikaust
-Author: Frederik Aust [aut, cre] (<https://orcid.org/0000-0003-4900-788X>),
-  Marius Barth [aut] (<https://orcid.org/0000-0002-3421-6665>),
+Packaged: 2025-09-26 11:27:59 UTC; frederikaust
+Author: Frederik Aust [aut, cre] (ORCID:
+    <https://orcid.org/0000-0003-4900-788X>),
+  Marius Barth [aut] (ORCID: <https://orcid.org/0000-0002-3421-6665>),
   Birk Diedenhofen [ctb],
   Christoph Stahl [ctb],
   Joseph V. Casillas [ctb],
   Rudolf Siegel [ctb]
 Maintainer: Frederik Aust <frederik.aust@uni-koeln.de>
 Repository: CRAN
-Date/Publication: 2024-10-24 11:10:02 UTC
+Date/Publication: 2025-09-26 23:30:02 UTC
