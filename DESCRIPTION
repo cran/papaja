@@ -1,7 +1,7 @@
 Package: papaja
 Title: Prepare American Psychological Association Journal Articles with
         R Markdown
-Version: 0.1.4
+Version: 0.1.5
 Description: Tools to create dynamic, submission-ready manuscripts, which
   conform to American Psychological Association manuscript guidelines. We
   provide R Markdown document formats for manuscripts (PDF and Word) and
@@ -15,7 +15,7 @@ Authors@R: c(
     , person("Joseph V.", "Casillas", email = "joseph.casillas@rutgers.edu", role = c("ctb"))
     , person("Rudolf", "Siegel", email = "rudolf.siegel@uni-saarland.de", role = c("ctb"))
   )
-Date: 2025-09-25
+Date: 2026-06-04
 URL: https://github.com/crsh/papaja
 BugReports: https://github.com/crsh/papaja/issues
 Depends: R (>= 4.2), tinylabels (>= 0.2.4)
@@ -35,7 +35,7 @@ RoxygenNote: 7.3.3
 VignetteBuilder: knitr, R.rsp
 Language: en-US
 NeedsCompilation: no
-Packaged: 2025-09-26 11:27:59 UTC; frederikaust
+Packaged: 2026-06-04 21:59:15 UTC; frederikaust
 Author: Frederik Aust [aut, cre] (ORCID:
     <https://orcid.org/0000-0003-4900-788X>),
   Marius Barth [aut] (ORCID: <https://orcid.org/0000-0002-3421-6665>),
@@ -45,4 +45,4 @@ Author: Frederik Aust [aut, cre] (ORCID:
   Rudolf Siegel [ctb]
 Maintainer: Frederik Aust <frederik.aust@uni-koeln.de>
 Repository: CRAN
-Date/Publication: 2025-09-26 23:30:02 UTC
+Date/Publication: 2026-06-05 05:10:02 UTC
